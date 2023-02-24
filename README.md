@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Whiteboarding:
+- Create an App called Dog City (name pending), a paradise for dog lovers who wish to learn more about their favorite breeds.
+- home page should have an elegant design, with a random photo generated and a random dog fact generated to get users interested upon arrival.
+- nav bar at the top should include a home button, a breeds button, a random breed button, and 2 stretch pages: one for finding adoptable pets in people's areas and another for a contact page in case users wish to contact me with job opportunities after viewing my amazing site.
+    - breeds page will include a drop-down (and search bar?) for users to find their desired breeds from the repository. (there are 172 breeds available). Below the search/drop down, users should see a grid with a photo and name of all the breeds available, with functionality to click on a breed to pull up the breedDetails page for that breed. 
+        - breedDetails will combine information from The Dog Api and Dogs Api displaying an array of information including:
+            - from The Dog API
+                - a picture
+                - breed name
+                - bred for (eg pointing and trailing)
+                - breed group (eg sporting)
+                - life-span
+                - temperament
+                - weight range
+                - height range
+            - from Dogs API (rating 1-5) (maybe convert the values to a visual graph?)
+                - good with children
+                - good with other dogs
+                - shedding
+                - grooming
+                - drooling
+                - coat length
+                - good with strangers
+                - playfulness
+                - protectiveness
+                - trainability
+                - energy
+                - barking
+        - **stretch goal** breed details would also have a button to search for any available adoptions near the user utilizing the PetFinder API)
+    - random breed button will take user to a random breedDetails page and have the same information from breedDetails. I can also include a button to find another random dog and potentially pop it into a grid on that page if people want to compare. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+### Resources
+- [The Dog API](https://thedogapi.com/)
+- [Dogs API (more information for each breed)](https://api-ninjas.com/api/dogs)
+- [TheDogAPI documentation](https://documenter.getpostman.com/view/5578104/2s935hRnak#auth-info-7b2d907b-6275-41df-9f0e-33e80a79399a)
+- [A third API that generates a random dog fact](https://dukengn.github.io/Dog-facts-API/)
+- [The Dog API usage tutorial](https://www.youtube.com/watch?v=wszFDXP0lkA&t=518s)
+- [Backup API for random dog photos](https://dog.ceo/dog-api/)
+- [potential stretch goal: api for accessing adoptable pets](https://www.petfinder.com/developers/v2/docs/)
+- [List of Public APIs](https://github.com/public-apis/public-apis)
+- [List of more APIs](https://github.com/n0shake/Public-APIs)
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Previous Lessons for Reference
+- [Project 2](https://github.com/seir-123/project2_prompt/blob/main/README.md)
+- [Login: useContext Lab](https://github.com/seir-123/u2_react_useContext_lab)
+- [userInfo: useContext Lesson](https://github.com/seir-123/u2_lesson_useContext)
+- [Games: react router lab](https://github.com/seir-123/u2_lab_react_router)
+- [Boats: react router lesson](https://github.com/seir-123/u2_lesson_react_router)
+- [Star Wars: react axios lab](https://github.com/seir-123/u2_react_axios_lab)
+- [Movies: react axios lesson](https://github.com/seir-123/u2_lesson_react_APIs)
+- [counter: react use effect lesson](https://github.com/seir-123/u2_lesson_useEffect)
