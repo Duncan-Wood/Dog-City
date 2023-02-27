@@ -7,11 +7,14 @@ export default function Breeds() {
   const [breeds, setBreeds] = useState([]);
   useEffect(() => {
     const getBreeds = async () => {
-      const response = await axios.get(`${BREEDS_URL}`);
-      setBreeds(response.data);
-    };
-    getBreeds();
-  }, []);
+      const response = await axios.get(`${BREEDS_URL}`, {
+        Authorization: `Bearer ${process.env.REACT_APP_THEDOGAPI_KEY}`
+      })
+      setBreeds(response.data)
+      console.log(response.data)
+    }
+    getBreeds()
+  }, [])
 
   let navigate = useNavigate()
   const showBreed = (id) => {
