@@ -5,40 +5,95 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function BreedDetails() {
-    const { id } = useParams()
-    const [breedDetails, setBreedDetails] = useState(null)
-  
-    useEffect(() => {
-      const getBreedDetails = async () => {
-        const response = await axios.get(`https://api.thedogapi.com/v1/images/search?breed_ids=${id}&api_key=live_EAEhKA2lnKST2cJzf095BVhl6W1yxvJyeyC7KMC20ybyc3uVqhI0woaQfoEJWYWv`)
-        console.log(response.data[0])
-        setBreedDetails(response.data[0])
+  const { id } = useParams();
+  const [breedDetails, setBreedDetails] = useState(null);
+  const [breedStats, setBreedStats] = useState(null);
+
+  const getBreedDetails = async () => {
+    const breedResponse = await axios.get(
+      `https://api.thedogapi.com/v1/images/search?breed_ids=${id}&api_key=live_EAEhKA2lnKST2cJzf095BVhl6W1yxvJyeyC7KMC20ybyc3uVqhI0woaQfoEJWYWv`
+    );
+    const breedName = breedResponse.data[0].breeds[0].name;
+    const statsResponse = await axios.get(
+      `https://api.api-ninjas.com/v1/dogs?name=${breedName}`,
+      {
+        headers: {
+          "X-Api-Key": `ljveLliOD2EeCCqhEdxOnA==EidUfAgTaoZs7DQl`,
+        },
       }
-      getBreedDetails()
-    }, [id])
+    );
+    setBreedDetails(breedResponse.data[0]);
+    setBreedStats(statsResponse.data[0]);
+  };
+
+  useEffect(() => {
+    getBreedDetails();
+  }, [id]);
+
+  console.log(breedStats)
   
-    return (
-      <div>
-        <div className='breed-description'>
-        {breedDetails ? (
-          <>
-        <Link to="/breeds">Back</Link>
-            <h1>{breedDetails.breeds[0].name}</h1>
-            <img src={breedDetails.url} alt='Breed Image' style={{ width: "50%" }}/>
-            <p>Temperament: {breedDetails.breeds[0].temperament}</p>
-            <p>Origin: {breedDetails.breeds[0].origin}</p>
-            <p>Breed Group: {breedDetails.breeds[0].breed_group}</p>
-            <p>Life Span: {breedDetails.breeds[0].life_span}</p>
-            <p>Height: {breedDetails.breeds[0].height.imperial} inches</p>
-            <p>Weight: {breedDetails.breeds[0].weight.imperial} lbs</p>
-          </>
-        ) : (
-          <p>Loading breed details...</p>
-        )}
+  return (
+    <div>
+      <Link to="/breeds">Back</Link>
+      {breedDetails ? (
+        <>
+          <h1>{breedDetails.breeds[0].name}</h1>
+          <img
+            src={breedDetails.url}
+            alt="Breed Image"
+            style={{ width: "50%" }}
+          />
+        </>
+      ) : (
+        <p>loading breed image</p>
+      )}
+      <div className="breed-details">
+        <div className="breed-description">
+          {breedDetails ? (
+            <>
+              <h2>Breed Description</h2>
+              <ul>
+                <li>Temperament: {breedDetails.breeds[0].temperament}</li>
+                <li>Origin: {breedDetails.breeds[0].origin}</li>
+                <li>Breed Group: {breedDetails.breeds[0].breed_group}</li>
+                <li>Life Span: {breedDetails.breeds[0].life_span}</li>
+                <li>Height: {breedDetails.breeds[0].height.imperial} inches</li>
+                <li>Weight: {breedDetails.breeds[0].weight.imperial} lbs</li>
+              </ul>
+            </>
+          ) : (
+            <p>Loading breed details...</p>
+          )}
         </div>
-        <div className='breed-stats'>
-          
+        <div className="breed-stats">
+          {breedStats ? (
+            <>
+              <h2>Breed Stats</h2>
+              <ul>
+                {/* {Object.entries(breedStats).map(([key, value]) => (
+                  <li key={key}>
+                    {key.replace(/_/g, " ")}: {value}
+                  </li>
+                ))} */}
+                <li>Barking: {breedStats.barking}</li>
+                <li>Coat Length: {breedStats.coat_length}</li>
+                <li>Drooling: {breedStats.drooling}</li>
+                <li>Energy: {breedStats.energy}</li>
+                <li>Good with Children: {breedStats.good_with_children}</li>
+                <li>Good with Other Dogs: {breedStats.good_with_other_dogs}</li>
+                <li>Good with Strangers: {breedStats.good_with_children}</li>
+                <li>Grooming: {breedStats.grooming}</li>
+                <li>Playfulness: {breedStats.playfulness}</li>
+                <li>Protectiveness: {breedStats.protectiveness}</li>
+                <li>Shedding: {breedStats.shedding}</li>
+                <li>Trainability: {breedStats.trainability}</li>
+              </ul>
+            </>
+          ) : (
+            <p>Loading breed stats...</p>
+          )}
         </div>
       </div>
-    )
-  }
+    </div>
+  );
+}
