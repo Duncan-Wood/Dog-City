@@ -43,6 +43,7 @@
 - [List of more APIs](https://github.com/n0shake/Public-APIs)
 - [ChatGPT](https://openai.com/blog/chatgpt/)
 - [header field for axios request](https://stackoverflow.com/questions/72012458/how-to-add-a-header-field-with-value-as-api-key-in-react-axios-request)
+- [optional chaining operator: ?.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 
 
 ### Previous Lessons for Reference

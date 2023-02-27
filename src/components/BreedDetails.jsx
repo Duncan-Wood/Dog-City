@@ -1,14 +1,14 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-// import Chart from 'chart.js/auto';
-
+import Chart from "chart.js/auto";
 
 export default function BreedDetails() {
   const { id } = useParams();
   const [breedDetails, setBreedDetails] = useState(null);
   const [breedStats, setBreedStats] = useState(null);
+  const chartContainer = useRef(null);
 
   const getBreedDetails = async () => {
     const breedResponse = await axios.get(
@@ -31,7 +31,62 @@ export default function BreedDetails() {
     getBreedDetails();
   }, [id]);
 
-  console.log(breedStats)
+  useEffect(() => {
+    // Set up chart when breedStats is available
+    if (breedStats && chartContainer.current) {
+      const chartData = getChartData();
+      const chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 1,
+              max: 5,
+            },
+          },
+        },
+      };
+      const chart = new Chart(chartContainer.current.getContext("2d"), {
+        type: "bar",
+        data: chartData,
+        options: chartOptions,
+      });
+      // Clean up chart on unmount
+      return () => chart.destroy();
+    }
+  }, [breedStats]);
+
+  const getChartData = () => {
+    const labels = [
+      "Barking",
+      "Coat Length",
+      "Drooling",
+      "Energy",
+      "Good with Children",
+      "Good with Other Dogs",
+      "Good with Strangers",
+      "Grooming",
+      "Playfulness",
+      "Protectiveness",
+      "Shedding",
+      "Trainability",
+    ];
+    const data = labels.map((label) => breedStats[label.toLowerCase()]);
+    return {
+      labels,
+      datasets: [
+        {
+          label: "Breed Stats",
+          data,
+          backgroundColor: "rgba(54, 162, 235, 0.2)",
+          borderColor: "rgba(54, 162, 235, 1)",
+          borderWidth: 1,
+        },
+      ],
+    };
+  };
 
   return (
     <div>
@@ -70,13 +125,25 @@ export default function BreedDetails() {
           {breedStats ? (
             <>
               <h2>Breed Stats</h2>
+              <div className="breed-chart">
+                <canvas ref={chartContainer} />
+              </div>
+            </>
+          ) : (
+            <p>Breed Stats Unavailable</p>
+          )}
+          {/* {breedStats ? (
+            <>
+              <h2>Breed Stats</h2>
               <ul>
                 <li>Barking: {breedStats.barking}/5</li>
                 <li>Coat Length: {breedStats.coat_length}/5</li>
                 <li>Drooling: {breedStats.drooling}/5</li>
                 <li>Energy: {breedStats.energy}/5</li>
                 <li>Good with Children: {breedStats.good_with_children}/5</li>
-                <li>Good with Other Dogs: {breedStats.good_with_other_dogs}/5</li>
+                <li>
+                  Good with Other Dogs: {breedStats.good_with_other_dogs}/5
+                </li>
                 <li>Good with Strangers: {breedStats.good_with_children}/5</li>
                 <li>Grooming: {breedStats.grooming}/5</li>
                 <li>Playfulness: {breedStats.playfulness}/5</li>
@@ -87,7 +154,7 @@ export default function BreedDetails() {
             </>
           ) : (
             <p>Breed Stats Unavailable</p>
-          )}
+          )} */}
         </div>
       </div>
     </div>
