@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import { BREED_DETAILS_URL } from "../globals";
 import { Link } from "react-router-dom";
+// import Chart from 'chart.js/auto';
+
 
 export default function BreedDetails() {
   const { id } = useParams();
@@ -31,7 +32,7 @@ export default function BreedDetails() {
   }, [id]);
 
   console.log(breedStats)
-  
+
   return (
     <div>
       <Link to="/breeds">Back</Link>
@@ -70,27 +71,22 @@ export default function BreedDetails() {
             <>
               <h2>Breed Stats</h2>
               <ul>
-                {/* {Object.entries(breedStats).map(([key, value]) => (
-                  <li key={key}>
-                    {key.replace(/_/g, " ")}: {value}
-                  </li>
-                ))} */}
-                <li>Barking: {breedStats.barking}</li>
-                <li>Coat Length: {breedStats.coat_length}</li>
-                <li>Drooling: {breedStats.drooling}</li>
-                <li>Energy: {breedStats.energy}</li>
-                <li>Good with Children: {breedStats.good_with_children}</li>
-                <li>Good with Other Dogs: {breedStats.good_with_other_dogs}</li>
-                <li>Good with Strangers: {breedStats.good_with_children}</li>
-                <li>Grooming: {breedStats.grooming}</li>
-                <li>Playfulness: {breedStats.playfulness}</li>
-                <li>Protectiveness: {breedStats.protectiveness}</li>
-                <li>Shedding: {breedStats.shedding}</li>
-                <li>Trainability: {breedStats.trainability}</li>
+                <li>Barking: {breedStats.barking}/5</li>
+                <li>Coat Length: {breedStats.coat_length}/5</li>
+                <li>Drooling: {breedStats.drooling}/5</li>
+                <li>Energy: {breedStats.energy}/5</li>
+                <li>Good with Children: {breedStats.good_with_children}/5</li>
+                <li>Good with Other Dogs: {breedStats.good_with_other_dogs}/5</li>
+                <li>Good with Strangers: {breedStats.good_with_children}/5</li>
+                <li>Grooming: {breedStats.grooming}/5</li>
+                <li>Playfulness: {breedStats.playfulness}/5</li>
+                <li>Protectiveness: {breedStats.protectiveness}/5</li>
+                <li>Shedding: {breedStats.shedding}/5</li>
+                <li>Trainability: {breedStats.trainability}/5</li>
               </ul>
             </>
           ) : (
-            <p>Loading breed stats...</p>
+            <p>Breed Stats Unavailable</p>
           )}
         </div>
       </div>

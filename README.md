@@ -41,6 +41,9 @@
 - [potential stretch goal: api for accessing adoptable pets](https://www.petfinder.com/developers/v2/docs/)
 - [List of Public APIs](https://github.com/public-apis/public-apis)
 - [List of more APIs](https://github.com/n0shake/Public-APIs)
+- [ChatGPT](https://openai.com/blog/chatgpt/)
+- [header field for axios request](https://stackoverflow.com/questions/72012458/how-to-add-a-header-field-with-value-as-api-key-in-react-axios-request)
+
 
 ### Previous Lessons for Reference
 - [Project 2](https://github.com/seir-123/project2_prompt/blob/main/README.md)
