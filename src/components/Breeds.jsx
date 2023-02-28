@@ -21,27 +21,24 @@ export default function Breeds() {
   let navigate = useNavigate()
   const showBreed = (id) => {
     navigate(`${id}`);
-  };
-
+  }
   const handleSearch = () => {
     setSelectedBreed(searchBreed);
-  };
-
+  }
   const handleSelect = (event) => {
     setSelectedBreed(event.target.value);
-  };
-
+  }
   const filteredBreeds = breeds.filter((breed) =>
     breed.name.toLowerCase().includes(selectedBreed.toLowerCase())
-  );
+  )
 
   return (
     <div>
       <Link to="/">Back</Link>
-      <div>
+      <div className='search-container'>
         <input
           type="text"
-          placeholder="Search breeds..."
+          placeholder="Search breeds"
           value={searchBreed}
           onChange={(event) => setSearchBreed(event.target.value)}
         />
@@ -64,9 +61,6 @@ export default function Breeds() {
           >
             <img src={breed.image.url} alt="Breed Photo" />
             <h4>{breed.name}</h4>
-            <Link to={`/breeds/${i}`}>
-              <button>View Breed</button>
-            </Link>
           </div>
         ))}
       </div>

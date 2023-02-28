@@ -1,3 +1,50 @@
+/* * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: papayawhip;
+  width: 100vw;
+  height: 100vh;
+}
+
+.home {
+  margin-top: 25vh;
+  background-color: pink;
+  width: fit-content;
+  justify-content: center;
+}
+
+.home img {
+  height: 50%;
+  width: 100%;
+  max-width: 500px;
+  max-height: 500px;
+
+}
+
+.header {
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  background-color: grey;
+  padding: 1em;
+}
+.nav {
+  display:flex;
+  padding: 20px;
+  width: 50vw;
+}
+.nav-container {
+  width: 50vw;
+}
+
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(250px, 1fr));
@@ -28,7 +75,6 @@
 }
 
 .details .content {
-  /* padding: 1em 0; */
   text-align: center;
 }
 
@@ -56,4 +102,110 @@ button:hover {
 
 .breed-details {
   display: flex;
+} */
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #202124;
+}
+
+/* Style for Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5d6d7e;
+  padding: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+}
+
+.header a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.home {
+  background-color: #ffffff;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.home h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #212121;
+  margin-bottom: 32px;
+}
+
+.home img {
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  height: 50%;
+  width: 100%;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+
+/* Breeds Page */
+
+/* Search */
+.search-container button:hover {
+  background-color: #1976d2;
+}
+
+/* Select */
+.select-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  gap: 1em;
+}
+
+.card {
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card h4 {
+  font-size: 24px;
+  margin: 10px;
+  text-align: center;
 }

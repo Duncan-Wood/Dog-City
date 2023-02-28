@@ -11,6 +11,7 @@ export default function Home() {
       try {
         const response = await axios.get(RANDOM_DOG_URL);
         setRandomDogImage(response.data[0]);
+        console.log(response.data[0])
       } catch (error) {
         console.log(error);
       }
@@ -26,10 +27,10 @@ export default function Home() {
   }, [randomDogImage]);
 
   return (
-    <div>
+    <div className='home'>
       <h1>Welcome to Dog City!</h1>
       {randomDogImage ? (
-        <img ref={imgRef} alt="random dog photo" style={{ width: "50%" }} />
+        <img ref={imgRef} alt="random dog photo" />
       ) : (
         <p>dog loading</p>
       )}

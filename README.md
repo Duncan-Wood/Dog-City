@@ -29,7 +29,15 @@
         - **stretch goal** breed details would also have a button to search for any available adoptions near the user utilizing the PetFinder API)
     - random breed button will take user to a random breedDetails page and have the same information from breedDetails. I can also include a button to find another random dog and potentially pop it into a grid on that page if people want to compare. 
 
-
+### Previous Lessons for Reference
+- [Project 2](https://github.com/seir-123/project2_prompt/blob/main/README.md)
+- [Login: useContext Lab](https://github.com/seir-123/u2_react_useContext_lab)
+- [userInfo: useContext Lesson](https://github.com/seir-123/u2_lesson_useContext)
+- [Games: react router lab](https://github.com/seir-123/u2_lab_react_router)
+- [Boats: react router lesson](https://github.com/seir-123/u2_lesson_react_router)
+- [Star Wars: react axios lab](https://github.com/seir-123/u2_react_axios_lab)
+- [Movies: react axios lesson](https://github.com/seir-123/u2_lesson_react_APIs)
+- [counter: react use effect lesson](https://github.com/seir-123/u2_lesson_useEffect)
 
 ### Resources
 - [The Dog API](https://thedogapi.com/)
@@ -44,14 +52,8 @@
 - [ChatGPT](https://openai.com/blog/chatgpt/)
 - [header field for axios request](https://stackoverflow.com/questions/72012458/how-to-add-a-header-field-with-value-as-api-key-in-react-axios-request)
 - [optional chaining operator: ?.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+- [.filter method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+- [Flexbox guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [CSS sizing guide](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS)
 
 
-### Previous Lessons for Reference
-- [Project 2](https://github.com/seir-123/project2_prompt/blob/main/README.md)
-- [Login: useContext Lab](https://github.com/seir-123/u2_react_useContext_lab)
-- [userInfo: useContext Lesson](https://github.com/seir-123/u2_lesson_useContext)
-- [Games: react router lab](https://github.com/seir-123/u2_lab_react_router)
-- [Boats: react router lesson](https://github.com/seir-123/u2_lesson_react_router)
-- [Star Wars: react axios lab](https://github.com/seir-123/u2_react_axios_lab)
-- [Movies: react axios lesson](https://github.com/seir-123/u2_lesson_react_APIs)
-- [counter: react use effect lesson](https://github.com/seir-123/u2_lesson_useEffect)
