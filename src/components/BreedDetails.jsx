@@ -103,7 +103,7 @@ export default function BreedDetails() {
       ) : (
         <p>loading breed image</p>
       )}
-      <div className="breed-details">
+      <div className="breed-details-container">
         <div className="breed-description">
           {breedDetails ? (
             <>
