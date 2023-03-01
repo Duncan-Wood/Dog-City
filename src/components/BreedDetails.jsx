@@ -61,12 +61,12 @@ export default function BreedDetails() {
   const getChartData = () => {
     const labels = [
       "Barking",
-      "Coat Length",
+      "Coat_Length",
       "Drooling",
       "Energy",
-      "Good with Children",
-      "Good with Other Dogs",
-      "Good with Strangers",
+      "Good_with_Children",
+      "Good_with_Other_Dogs",
+      "Good_with_Strangers",
       "Grooming",
       "Playfulness",
       "Protectiveness",
@@ -89,7 +89,7 @@ export default function BreedDetails() {
   };
 
   return (
-    <div>
+    <div className='breed-details-container'>
       <Link to="/breeds">Back</Link>
       {breedDetails ? (
         <>
@@ -103,7 +103,7 @@ export default function BreedDetails() {
       ) : (
         <p>loading breed image</p>
       )}
-      <div className="breed-details-container">
+      <div className="breed-information">
         <div className="breed-description">
           {breedDetails ? (
             <>
