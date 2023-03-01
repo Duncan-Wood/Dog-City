@@ -28,12 +28,14 @@ export default function Home() {
 
   return (
     <div className='home'>
+      <div className='card'>
       <h1>Welcome to Dog City!</h1>
       {randomDogImage ? (
         <img ref={imgRef} alt="random dog photo" />
       ) : (
         <p>dog loading</p>
       )}
+    </div>
     </div>
   );
 }
