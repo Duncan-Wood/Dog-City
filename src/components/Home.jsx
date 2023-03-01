@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { RANDOM_DOG_URL } from "../globals";
+import { Link } from 'react-router-dom'
 
 export default function Home() {
   const [randomDogImage, setRandomDogImage] = useState(null);
@@ -31,7 +32,10 @@ export default function Home() {
       <div className='card'>
       <h1>Welcome to Dog City!</h1>
       {randomDogImage ? (
+        <div>
         <img ref={imgRef} alt="random dog photo" />
+        <Link to='breeds'>Browse Our Breeds</Link>
+        </div>
       ) : (
         <p>dog loading</p>
       )}
