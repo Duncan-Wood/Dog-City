@@ -7,35 +7,35 @@ export default function Breeds() {
   const [breeds, setBreeds] = useState([]);
   const [searchBreed, setSearchBreed] = useState("");
   const [selectedBreed, setSelectedBreed] = useState("");
-  
+
   useEffect(() => {
     const getBreeds = async () => {
       const response = await axios.get(`${BREEDS_URL}`, {
-        Authorization: `Bearer ${process.env.REACT_APP_THEDOGAPI_KEY}`
-      })
-      setBreeds(response.data)
-    }
-    getBreeds()
-  }, [])
+        Authorization: `Bearer ${process.env.REACT_APP_THEDOGAPI_KEY}`,
+      });
+      setBreeds(response.data);
+    };
+    getBreeds();
+  }, []);
 
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   const showBreed = (id) => {
     navigate(`${id}`);
-  }
+  };
   const handleSearch = () => {
     setSelectedBreed(searchBreed);
-  }
+  };
   const handleSelect = (event) => {
     setSelectedBreed(event.target.value);
-  }
+  };
   const filteredBreeds = breeds.filter((breed) =>
     breed.name.toLowerCase().includes(selectedBreed.toLowerCase())
-  )
+  );
 
   return (
     <div>
       <Link to="/">Back</Link>
-      <div className='search-container'>
+      <div className="search-container">
         <input
           type="text"
           placeholder="Search breeds"
