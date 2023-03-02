@@ -1,6 +1,6 @@
 .home {
-  background-color: black;
-  background-image: url("../Assets/DogCityBackground.png");
+  background-color: #815f42;
+  background-image: url("../Assets/DogCityBackground-brown.png");
   background-repeat: no-repeat;
   background-position-y: bottom;
   background-size: 100vw;
@@ -13,19 +13,23 @@
 }
 
 .home-card {
+  margin-top:1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.72);
+  background-color: #d99f59ab;
   padding: 24px;
   border-radius: 8px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 .home-card h1 {
-  font-size: 48px;
-  color: #212121;
+  font-size: 64px;
+  color: #412a17;
+  font-family: 'Gidugu', sans-serif;
+  margin-top: -10px;
+  margin-bottom: -10px;
 }
 
 .home-card img {
@@ -45,15 +49,19 @@
 
 .home-buttons a {
   text-decoration: none;
-  color: white;
+  color: #412a17;
 }
 .home-buttons button {
-  background-color: rgba(101, 101, 101, 0.42);
+  background-color: #D99F59;
   padding: 10px;
   cursor: pointer;
+  font-weight: bold;
+  color: #412a17;
+  font-size:large;
 }
+
 .home-buttons button:hover {
-  background-color: rgba(101, 101, 101, 0.778);
+  background-color: #BF7636;
   padding: 10px;
   cursor: pointer;
 }
@@ -61,9 +69,8 @@
 h2 {
   margin-top: 1em;
   padding: 0.25em;
-  background-color: rgba(255, 255, 255, 0.72);
+  background-color: #d99f59ab;
   border-radius: 8px;
-
 }
 #random-breeds {
   display: flex;
@@ -73,24 +80,21 @@ h2 {
   margin: 0 auto;
   min-height: 30vh;
   cursor: pointer;
+  padding-bottom: 15rem;
 }
 
 .random-card {
   width: 25%;
   margin: 1%;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.72);
+  background-color: #d99f59ab;
   height: fit-content;
   border-radius: 8px;
   padding: 0.5em;
   transition: transform 0.3s ease-in-out;
-  transition: width 0.3s ease-in-out;
-
-
 }
 .random-card:hover {
   transform: translateY(-10px);
-  width: 40%;
 }
 
 .random-card img {

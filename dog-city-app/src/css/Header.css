@@ -1,9 +1,9 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  /* background-color: #D99F59; */
+  background-image: linear-gradient(#D99F59, #815f42);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}

@@ -1,4 +1,4 @@
-import "../css/Header.css"
+import "../css/Header.css";
 
 import Nav from "./Nav";
 import DogCityLogo from "../Assets/DogCityLogo.png";
@@ -10,7 +10,6 @@ export default function Header() {
         <a href="/">
           <img className="logo" src={DogCityLogo} alt="Dog City Logo" />
         </a>
-
         <div className="nav-container">
           <Nav />
         </div>

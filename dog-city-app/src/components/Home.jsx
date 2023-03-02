@@ -67,7 +67,7 @@ export default function Home() {
     <div className="home">
       {randomDogImage ? (
         <div className="home-card">
-          <h1>Welcome to Dog City!</h1>
+          <h1>WELCOME TO DOG CITY!</h1>
           <img ref={imgRef} alt="random dog photo" />
           <div className="home-buttons">
             <button>

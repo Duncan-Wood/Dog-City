@@ -36,7 +36,7 @@ export default function Breeds() {
 
   return (
     <div>
-      <Link to="/">Back</Link>
+      <Link to="/" className='back-button'>Back</Link>
       <div className="search-container">
         <input
           type="text"
