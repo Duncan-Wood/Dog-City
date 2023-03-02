@@ -41,7 +41,7 @@
 
 .home-buttons {
   box-sizing: border-box;
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   padding-top: 1em;
@@ -71,6 +71,7 @@ h2 {
   padding: 0.25em;
   background-color: #d99f59ab;
   border-radius: 8px;
+  color: #412a17;
 }
 #random-breeds {
   display: flex;
@@ -81,6 +82,7 @@ h2 {
   min-height: 30vh;
   cursor: pointer;
   padding-bottom: 15rem;
+  color: #412a17;
 }
 
 .random-card {

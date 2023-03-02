@@ -1,44 +1,54 @@
+.breeds {
+  background-color: #815f42;
+  background-image: url("../Assets/DogCityBackground-brown.png");
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  background-size: 100vw;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.breeds-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 .back-button {
-  display: block;
-  width:fit-content;
-  margin: .5em;
-  padding: .25em .5em;
-  background-color: #fff;
-  border: 2px solid #734C29;
+  position: absolute;
+  top: 22.65vh;
+  left: 1em;
+  margin: 0.5em;
+  padding: 0.25em 0.5em;
+  background-color: #734c29;
+  border: 2px solid #734c29;
   border-radius: 5px;
-  color: #734C29;
+  color: #d99f59;
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
 }
-
 .back-button:hover {
-  background-color: #734C29;
+  background-color: #53361e;
   color: #fff;
-}
-
-
-.search-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
 }
 
 input[type="text"] {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  color: #412a17;
   margin-right: 10px;
 }
 
 button {
   padding: 10px;
-  background-color: #D99F59;
-  color: #fff;
+  background-color: #d99f59;
+  color: #412a17;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 select {
@@ -46,32 +56,32 @@ select {
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-left: 10px;
+  color: #412a17;
 }
 .search-container button:hover {
-  background-color: #BF7636;
+  background-color: #bf7636;
 }
 
 .select-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 20px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  flex-wrap: wrap;
+  grid-template-columns: repeat(3, minmax(5rem, 1fr));
   gap: 1em;
 }
 
 .card {
-  position: relative;
-  background-color: #fff;
+  color: #412a17;
+  background-color: #d99f59ab;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  overflow: hidden;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
+  height: fit-content;
 }
 
 .card:hover {

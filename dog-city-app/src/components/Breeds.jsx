@@ -1,4 +1,4 @@
-import "../css/Breeds.css"
+import "../css/Breeds.css";
 
 import { BREEDS_URL } from "../globals";
 import axios from "axios";
@@ -35,24 +35,28 @@ export default function Breeds() {
   );
 
   return (
-    <div>
-      <Link to="/" className='back-button'>Back</Link>
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Search breeds"
-          value={searchBreed}
-          onChange={(event) => setSearchBreed(event.target.value)}
-        />
-        <button onClick={handleSearch}>Search</button>
-        <select value={selectedBreed} onChange={handleSelect}>
-          <option value="">All breeds</option>
-          {breeds.map((breed) => (
-            <option value={breed.name} key={breed.id}>
-              {breed.name}
-            </option>
-          ))}
-        </select>
+    <div className="breeds">
+      <div className="breeds-header">
+        <Link to="/" className="back-button">
+          Back
+        </Link>
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search breeds"
+            value={searchBreed}
+            onChange={(event) => setSearchBreed(event.target.value)}
+          />
+          <button onClick={handleSearch}>Search</button>
+          <select value={selectedBreed} onChange={handleSelect}>
+            <option value="">All breeds</option>
+            {breeds.map((breed) => (
+              <option value={breed.name} key={breed.id}>
+                {breed.name}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <div className="grid" id="breeds">
         {filteredBreeds.map((breed, i) => (
