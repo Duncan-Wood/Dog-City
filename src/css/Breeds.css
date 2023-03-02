@@ -1,0 +1,75 @@
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+/* Search */
+.search-container button:hover {
+  background-color: #1976d2;
+}
+
+/* Select */
+.select-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  gap: 1em;
+}
+
+.card {
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card h4 {
+  font-size: 24px;
+  margin: 10px;
+  text-align: center;
+}

@@ -1,3 +1,5 @@
+import "../css/BreedDetails.css"
+
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";

@@ -1,3 +1,5 @@
+import "../css/Header.css"
+
 import Nav from "./Nav";
 import DogCityLogo from "../Assets/DogCityLogo.png";
 

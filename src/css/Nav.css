@@ -1,0 +1,20 @@
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover {
+  color: gray;
+}

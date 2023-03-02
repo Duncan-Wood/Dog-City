@@ -1,3 +1,5 @@
+import "../css/Breeds.css"
+
 import { BREEDS_URL } from "../globals";
 import axios from "axios";
 import { useState, useEffect } from "react";

@@ -1,3 +1,5 @@
+import "../css/Home.css"
+
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { RANDOM_DOG_URL } from "../globals";
@@ -56,6 +58,13 @@ export default function Home() {
   const showBreed = (id) => {
     navigate(`breeds/${id}`);
   };
+
+  const showRandomBreed = () => {
+    const randomIndex = Math.floor(Math.random() * randomBreeds.length);
+    const randomBreed = randomBreeds[randomIndex];
+    showBreed(randomBreed.id);
+  };
+
   return (
     <div className="home">
       <div className="card">
@@ -63,7 +72,10 @@ export default function Home() {
         {randomDogImage ? (
           <div>
             <img ref={imgRef} alt="random dog photo" />
-            <Link to="breeds">Browse Our Breeds</Link>
+            <button>
+              <Link to="breeds">Browse Our Breeds</Link>
+            </button>
+            <button onClick={showRandomBreed}>Random Breed</button>
           </div>
         ) : (
           <p>dog loading</p>
