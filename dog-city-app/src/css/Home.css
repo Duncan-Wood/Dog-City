@@ -12,46 +12,90 @@
   min-height: 100vh;
 }
 
-.card {
-  background-color: white;
+.home-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.72);
   padding: 24px;
   border-radius: 8px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
-.home h1 {
-    font-size: 48px;
-    font-weight: 700;
-    color: #212121;
-    margin-bottom: 32px;
-    }
-    
+.home-card h1 {
+  font-size: 48px;
+  color: #212121;
+}
 
-.home img {
+.home-card img {
   border-radius: 8px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-  height: 50%;
-  width: 100%;
   max-width: 500px;
-  max-height: 500px;
+  max-height: 300px;
 }
 
+.home-buttons {
+  box-sizing: border-box;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1em;
+}
+
+.home-buttons a {
+  text-decoration: none;
+  color: white;
+}
+.home-buttons button {
+  background-color: rgba(101, 101, 101, 0.42);
+  padding: 10px;
+  cursor: pointer;
+}
+.home-buttons button:hover {
+  background-color: rgba(101, 101, 101, 0.778);
+  padding: 10px;
+  cursor: pointer;
+}
+
+h2 {
+  margin-top: 1em;
+  padding: 0.25em;
+  background-color: rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+
+}
 #random-breeds {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
   max-width: 100%;
   margin: 0 auto;
-  min-height: 20vh;
+  min-height: 30vh;
+  cursor: pointer;
 }
 
 .random-card {
   width: 25%;
   margin: 1%;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.72);
+  height: fit-content;
+  border-radius: 8px;
+  padding: 0.5em;
+  transition: transform 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
+
+
+}
+.random-card:hover {
+  transform: translateY(-10px);
+  width: 40%;
 }
 
 .random-card img {
   width: 100%;
   height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
 }
-

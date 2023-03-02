@@ -1,11 +1,9 @@
-import "../css/Home.css"
-
-import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import { useState, useEffect, useRef } from "react";
 import { RANDOM_DOG_URL } from "../globals";
 import { Link, useNavigate } from "react-router-dom";
-
 import { BREEDS_URL } from "../globals";
+import "../css/Home.css";
 
 export default function Home() {
   const [randomDogImage, setRandomDogImage] = useState(null);
@@ -67,24 +65,26 @@ export default function Home() {
 
   return (
     <div className="home">
-      <div className="card">
-        <h1>Welcome to Dog City!</h1>
-        {randomDogImage ? (
-          <div>
-            <img ref={imgRef} alt="random dog photo" />
+      {randomDogImage ? (
+        <div className="home-card">
+          <h1>Welcome to Dog City!</h1>
+          <img ref={imgRef} alt="random dog photo" />
+          <div className="home-buttons">
             <button>
               <Link to="breeds">Browse Our Breeds</Link>
             </button>
             <button onClick={showRandomBreed}>Random Breed</button>
           </div>
-        ) : (
-          <p>dog loading</p>
-        )}
-      </div>
-      <div className="grid" id="breeds">
+        </div>
+      ) : (
+        <p>dog loading</p>
+      )}
+              <h2>Featured Breeds</h2>
+
+      <div className="random-grid" id="random-breeds">
         {randomBreeds.map((breed, i) => (
           <div
-            className="card"
+            className="random-card"
             onClick={() => showBreed(breed.id)}
             key={breed.id}
           >
