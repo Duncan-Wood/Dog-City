@@ -1,5 +1,3 @@
-/* Style for Header */
-
 .logo {
   width: 120px;
   height: auto;
@@ -10,6 +8,7 @@ body {
   color: #202124;
 }
 
+/* Style for Header */
 
 .header {
   display: flex;
@@ -75,7 +74,26 @@ body {
   max-height: 500px;
   }
 
-
+  #random-breeds {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto;
+    min-height: 20vh;
+  }
+  
+  .random-card {
+    width: 25%;
+    margin: 1%;
+    text-align: center;
+  }
+  
+  .random-card img {
+    width: 100%;
+    height: auto;
+  }
+  
 /* Breeds Page */
 .search-container {
   display: flex;

@@ -1,3 +1,3 @@
 import React, { createContext } from 'react';
 
-export const BreedContext = createContext();
+export const BreedsContext = createContext();
