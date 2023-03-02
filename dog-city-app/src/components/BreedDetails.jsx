@@ -1,4 +1,4 @@
-import "../css/BreedDetails.css"
+import "../css/BreedDetails.css";
 
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -36,8 +36,14 @@ export default function BreedDetails() {
   useEffect(() => {
     // Set up chart when breedStats is available
     if (breedStats && chartContainer.current) {
+      Chart.defaults.color = "#412a17";
       const chartData = getChartData();
       const chartOptions = {
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
         responsive: true,
         maintainAspectRatio: false,
         scales: {
@@ -82,8 +88,8 @@ export default function BreedDetails() {
         {
           label: "Breed Stats",
           data,
-          backgroundColor: "rgba(54, 162, 235, 0.2)",
-          borderColor: "rgba(54, 162, 235, 1)",
+          backgroundColor: "#D99F59",
+          borderColor: "#412a17",
           borderWidth: 1,
         },
       ],
@@ -91,16 +97,20 @@ export default function BreedDetails() {
   };
 
   return (
-    <div className='breed-details-container'>
-      <Link to="/breeds">Back</Link>
+    <div className="breed-details-container">
+      <Link to="/breeds" className="details-back-button">
+        Back
+      </Link>
       {breedDetails ? (
         <>
-          <h1>{breedDetails.breeds[0].name}</h1>
-          <img
-            src={breedDetails.url}
-            alt="Breed Image"
-            style={{ width: "50%" }}
-          />
+          <div className="top">
+            <h1>{breedDetails.breeds[0].name}</h1>
+            <img
+              src={breedDetails.url}
+              alt="Breed Image"
+              style={{ width: "50%" }}
+            />
+          </div>
         </>
       ) : (
         <p>loading breed image</p>
@@ -130,12 +140,6 @@ export default function BreedDetails() {
               <div className="breed-chart">
                 <canvas ref={chartContainer} />
               </div>
-            </>
-          ) : (
-            <p>Breed Stats Unavailable</p>
-          )}
-          {breedStats ? (
-            <>
               <ul>
                 <li>Barking: {breedStats.barking}/5</li>
                 <li>Coat Length: {breedStats.coat_length}/5</li>
@@ -154,7 +158,7 @@ export default function BreedDetails() {
               </ul>
             </>
           ) : (
-            <p>Breed Stats Unavailable</p>
+            <h2>Breed Stats Unavailable</h2>
           )}
         </div>
       </div>

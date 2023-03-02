@@ -75,6 +75,7 @@ select {
 }
 
 .card {
+  backdrop-filter: blur(3px);
   color: #412a17;
   background-color: #d99f59ab;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);

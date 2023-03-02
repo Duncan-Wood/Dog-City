@@ -13,7 +13,8 @@
 }
 
 .home-card {
-  margin-top:1em;
+  backdrop-filter: blur(3px);
+  margin-top: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,7 +28,7 @@
 .home-card h1 {
   font-size: 64px;
   color: #412a17;
-  font-family: 'Gidugu', sans-serif;
+  font-family: "Gidugu", sans-serif;
   margin-top: -10px;
   margin-bottom: -10px;
 }
@@ -52,21 +53,22 @@
   color: #412a17;
 }
 .home-buttons button {
-  background-color: #D99F59;
+  background-color: #d99f59;
   padding: 10px;
   cursor: pointer;
   font-weight: bold;
   color: #412a17;
-  font-size:large;
+  font-size: large;
 }
 
 .home-buttons button:hover {
-  background-color: #BF7636;
+  background-color: #bf7636;
   padding: 10px;
   cursor: pointer;
 }
 
-h2 {
+.home h2 {
+  backdrop-filter: blur(3px);
   margin-top: 1em;
   padding: 0.25em;
   background-color: #d99f59ab;
@@ -86,6 +88,7 @@ h2 {
 }
 
 .random-card {
+  backdrop-filter: blur(3px);
   width: 25%;
   margin: 1%;
   text-align: center;
