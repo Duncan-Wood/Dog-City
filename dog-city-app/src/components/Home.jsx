@@ -37,14 +37,16 @@ export default function Home() {
         const response = await axios.get(`${BREEDS_URL}`);
         //storing entire breeds array withing the function, since we will only use 5 random ones in the end, I do not need a seperate useState
         const breeds = response.data;
-        while (randomBreeds.length < 5) {
+        // create a copy of the array to prevent async updating the array in the wrong order
+        const newRandomBreeds = randomBreeds.slice();
+        while (newRandomBreeds.length < 5) {
           const randomIndex = Math.floor(Math.random() * breeds.length);
           const randomBreed = breeds[randomIndex];
-          if (!randomBreeds.includes(randomBreed)) {
-            randomBreeds.push(randomBreed);
+          if (!newRandomBreeds.includes(randomBreed)) {
+            newRandomBreeds.push(randomBreed);
           }
         }
-        setRandomBreeds(randomBreeds);
+        setRandomBreeds(newRandomBreeds);
       } catch (error) {
         alert(
           "There was an error getting the featured breeds. Please email duncanwoodpro@gmail.com to notify them about this error."
