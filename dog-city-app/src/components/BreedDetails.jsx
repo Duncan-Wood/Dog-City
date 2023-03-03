@@ -41,42 +41,10 @@ export default function BreedDetails() {
     }
   };
 
+  //This useEffect hook is created to ensure that the page rerenders any time the ID changes
   useEffect(() => {
     getBreedDetails();
   }, [id]);
-
-  useEffect(() => {
-    // Set up chart when breedStats is available
-    if (breedStats && chartContainer.current) {
-      Chart.defaults.color = "#412a17";
-      const chartData = getChartData();
-      const chartOptions = {
-        plugins: {
-          legend: {
-            display: false,
-          },
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: {
-              stepSize: 1,
-              max: 5,
-            },
-          },
-        },
-      };
-      const chart = new Chart(chartContainer.current.getContext("2d"), {
-        type: "bar",
-        data: chartData,
-        options: chartOptions,
-      });
-      // Clean up chart on unmount
-      return () => chart.destroy();
-    }
-  }, [breedStats]);
 
   const getChartData = () => {
     const labels = [
@@ -107,6 +75,38 @@ export default function BreedDetails() {
       ],
     };
   };
+  useEffect(() => {
+    // Set up chart when breedStats and chartContainer are available
+    if (breedStats && chartContainer.current) {
+      Chart.defaults.color = "#412a17";
+      const chartData = getChartData();
+      const chartOptions = {
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 1,
+              max: 5,
+            },
+          },
+        },
+      };
+      const chart = new Chart(chartContainer.current.getContext("2d"), {
+        type: "bar",
+        data: chartData,
+        options: chartOptions,
+      });
+      // Clean up chart on unmount
+      return () => chart.destroy();
+    }
+  }, [breedStats]);
 
   return (
     <div className="breed-details-container">

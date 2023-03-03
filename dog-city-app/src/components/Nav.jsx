@@ -1,5 +1,4 @@
-import '../css/Nav.css'
-
+import "../css/Nav.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -18,23 +17,19 @@ export default function Nav() {
           },
         });
         setBreeds(response.data);
-        setRandomBreed(randomBreedGenerator(response.data));
+        setRandomBreed(response.data[Math.floor(Math.random() * response.data.length)].id);
       } catch (error) {
-        alert('An error occurred while fetching a random breed. Please email duncanwoodpro@gmail.com to notify them about this error.');
+        alert(
+          "An error occurred while fetching a random breed. Please email duncanwoodpro@gmail.com to notify them about this error."
+        );
       }
     };
     getBreeds();
   }, []);
 
-  const randomBreedGenerator = (breeds) => {
-    const min = 0;
-    const max = breeds.length - 1;
-    const randomIndex = Math.floor(Math.random() * (max - min + 1)) + min;
-    return breeds[randomIndex]?.id;
-  };
-
+  // in one click, this function takes the breeds array and pulls a random index with in. Then, it pulls the ID from that index.
   function handleClick() {
-    setRandomBreed(randomBreedGenerator(breeds));
+    setRandomBreed(breeds[Math.floor(Math.random() * breeds.length)].id);
   }
 
   return (

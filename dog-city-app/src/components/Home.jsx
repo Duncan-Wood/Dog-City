@@ -1,22 +1,19 @@
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
-import { RANDOM_DOG_URL } from "../globals";
+import { RANDOM_DOG_URL, BREEDS_URL } from "../globals";
 import { Link, useNavigate } from "react-router-dom";
-import { BREEDS_URL } from "../globals";
 import "../css/Home.css";
 
 export default function Home() {
   const [randomDogImage, setRandomDogImage] = useState(null);
+  //stores a reference to the original dog image that is pulled. This allows me to only use the original image since it renders twice in React
   const imgRef = useRef(null);
+  const [randomBreeds, setRandomBreeds] = useState([]);
 
   useEffect(() => {
     const getRandomDogImage = async () => {
       try {
-        const response = await axios.get(`${RANDOM_DOG_URL}`, {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_THEDOGAPI_KEY}`,
-          },
-        });
+        const response = await axios.get(`${RANDOM_DOG_URL}`);
         setRandomDogImage(response.data[0]);
       } catch (error) {
         alert(
@@ -28,35 +25,30 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    //optional chaining operator: ?.
+    //optional chaining (?.) will set the imgRef once and only once to bypass React refreshing and showing image twice
     if (randomDogImage && !imgRef.current?.src) {
       imgRef.current.src = randomDogImage.url;
     }
   }, [randomDogImage]);
 
-  // 5 random featured breeds
-  const [breeds, setBreeds] = useState([]);
-  const [randomBreeds, setRandomBreeds] = useState([]);
-
   useEffect(() => {
     const getBreeds = async () => {
       try {
-        const response = await axios.get(`${BREEDS_URL}`, {
-          Authorization: `Bearer ${process.env.REACT_APP_THEDOGAPI_KEY}`,
-        });
-        setBreeds(response.data);
-        // Get 5 random breeds from the list
-        const randomBreeds = [];
+        const response = await axios.get(`${BREEDS_URL}`);
+        //storing entire breeds array withing the function, since we will only use 5 random ones in the end, I do not need a seperate useState
+        const breeds = response.data;
         while (randomBreeds.length < 5) {
-          const randomIndex = Math.floor(Math.random() * response.data.length);
-          const randomBreed = response.data[randomIndex];
+          const randomIndex = Math.floor(Math.random() * breeds.length);
+          const randomBreed = breeds[randomIndex];
           if (!randomBreeds.includes(randomBreed)) {
             randomBreeds.push(randomBreed);
           }
         }
         setRandomBreeds(randomBreeds);
       } catch (error) {
-        alert("There was an error getting the featured breeds. Please email duncanwoodpro@gmail.com to notify them about this error.");
+        alert(
+          "There was an error getting the featured breeds. Please email duncanwoodpro@gmail.com to notify them about this error."
+        );
       }
     };
     getBreeds();

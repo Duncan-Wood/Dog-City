@@ -8,14 +8,12 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Breeds() {
   const [breeds, setBreeds] = useState([]);
   const [searchBreed, setSearchBreed] = useState("");
-  const [selectedBreed, setSelectedBreed] = useState("");
+  const [selectedBreeds, setSelectedBreeds] = useState("");
 
   useEffect(() => {
     const getBreeds = async () => {
       try {
-        const response = await axios.get(`${BREEDS_URL}`, {
-          Authorization: `Bearer ${process.env.REACT_APP_THEDOGAPI_KEY}`,
-        });
+        const response = await axios.get(`${BREEDS_URL}`);
         setBreeds(response.data);
       } catch (error) {
         alert(
@@ -31,13 +29,15 @@ export default function Breeds() {
     navigate(`${id}`);
   };
   const handleSearch = () => {
-    setSelectedBreed(searchBreed);
+    setSelectedBreeds(searchBreed);
   };
   const handleSelect = (event) => {
-    setSelectedBreed(event.target.value);
+    setSelectedBreeds(event.target.value);
   };
+
+  //This is the core of how my search bar works. By taking either the selected breed from the drop down or any number of breeds that include the search paramater, my breeds array gets filtered accordingly
   const filteredBreeds = breeds.filter((breed) =>
-    breed.name.toLowerCase().includes(selectedBreed.toLowerCase())
+    breed.name.toLowerCase().includes(selectedBreeds.toLowerCase())
   );
 
   return (
@@ -54,7 +54,7 @@ export default function Breeds() {
             onChange={(event) => setSearchBreed(event.target.value)}
           />
           <button onClick={handleSearch}>Search</button>
-          <select value={selectedBreed} onChange={handleSelect}>
+          <select value={selectedBreeds} onChange={handleSelect}>
             <option value="">All breeds</option>
             {breeds.map((breed) => (
               <option value={breed.name} key={breed.id}>
