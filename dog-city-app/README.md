@@ -1,5 +1,5 @@
 # Welcome to Dog City!
-![Dog City Screenshot](dog-city-app/src/Assets/DogCityScreenshot.png)
+![Dog City Screenshot](dog-city-app/src/Assets/screenshotsmall.png)
 
 ## Take a look
 [Dog City](https://dog-city.netlify.app)
