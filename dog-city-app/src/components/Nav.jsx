@@ -11,13 +11,17 @@ export default function Nav() {
 
   useEffect(() => {
     const getBreeds = async () => {
-      const response = await axios.get(`${BREEDS_URL}`, {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_THEDOGAPI_KEY}`,
-        },
-      });
-      setBreeds(response.data);
-      setRandomBreed(randomBreedGenerator(response.data));
+      try {
+        const response = await axios.get(`${BREEDS_URL}`, {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_THEDOGAPI_KEY}`,
+          },
+        });
+        setBreeds(response.data);
+        setRandomBreed(randomBreedGenerator(response.data));
+      } catch (error) {
+        alert('An error occurred while fetching a random breed. Please email duncanwoodpro@gmail.com to notify them about this error.');
+      }
     };
     getBreeds();
   }, []);

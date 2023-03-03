@@ -12,10 +12,16 @@ export default function Breeds() {
 
   useEffect(() => {
     const getBreeds = async () => {
-      const response = await axios.get(`${BREEDS_URL}`, {
-        Authorization: `Bearer ${process.env.REACT_APP_THEDOGAPI_KEY}`,
-      });
-      setBreeds(response.data);
+      try {
+        const response = await axios.get(`${BREEDS_URL}`, {
+          Authorization: `Bearer ${process.env.REACT_APP_THEDOGAPI_KEY}`,
+        });
+        setBreeds(response.data);
+      } catch (error) {
+        alert(
+          "There was an error getting the breeds. Please email duncanwoodpro@gmail.com to notify them about this error."
+        );
+      }
     };
     getBreeds();
   }, []);

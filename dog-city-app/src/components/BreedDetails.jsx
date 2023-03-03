@@ -5,6 +5,11 @@ import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Chart from "chart.js/auto";
+import {
+  BREED_DETAILS_URL,
+  REACT_APP_THEDOGAPI_KEY,
+  REACT_APP_DOGSAPI_KEY,
+} from "../globals";
 
 export default function BreedDetails() {
   const { id } = useParams();
@@ -13,20 +18,27 @@ export default function BreedDetails() {
   const chartContainer = useRef(null);
 
   const getBreedDetails = async () => {
-    const breedResponse = await axios.get(
-      `https://api.thedogapi.com/v1/images/search?breed_ids=${id}&api_key=live_EAEhKA2lnKST2cJzf095BVhl6W1yxvJyeyC7KMC20ybyc3uVqhI0woaQfoEJWYWv`
-    );
-    const breedName = breedResponse.data[0].breeds[0].name;
-    const statsResponse = await axios.get(
-      `https://api.api-ninjas.com/v1/dogs?name=${breedName}`,
-      {
-        headers: {
-          "X-Api-Key": `ljveLliOD2EeCCqhEdxOnA==EidUfAgTaoZs7DQl`,
-        },
-      }
-    );
-    setBreedDetails(breedResponse.data[0]);
-    setBreedStats(statsResponse.data[0]);
+    try {
+      const breedResponse = await axios.get(
+        `${BREED_DETAILS_URL}${id}&api_key=${REACT_APP_THEDOGAPI_KEY}`
+      );
+      const breedName = breedResponse.data[0].breeds[0].name;
+
+      const statsResponse = await axios.get(
+        `https://api.api-ninjas.com/v1/dogs?name=${breedName}&api_key=${REACT_APP_DOGSAPI_KEY}`,
+        {
+          headers: {
+            "X-Api-Key": `${REACT_APP_DOGSAPI_KEY}`,
+          },
+        }
+      );
+      setBreedDetails(breedResponse.data[0]);
+      setBreedStats(statsResponse.data[0]);
+    } catch (error) {
+      alert(
+        "There was an error getting the breed details and/or breed stats. Please email duncanwoodpro@gmail.com to notify them about this error."
+      );
+    }
   };
 
   useEffect(() => {
@@ -141,20 +153,76 @@ export default function BreedDetails() {
                 <canvas ref={chartContainer} />
               </div>
               <ul>
-                <li>Barking: {breedStats.barking}/5</li>
-                <li>Coat Length: {breedStats.coat_length}/5</li>
-                <li>Drooling: {breedStats.drooling}/5</li>
-                <li>Energy: {breedStats.energy}/5</li>
-                <li>Good with Children: {breedStats.good_with_children}/5</li>
                 <li>
-                  Good with Other Dogs: {breedStats.good_with_other_dogs}/5
+                  Barking:{" "}
+                  {breedStats.barking
+                    ? breedStats.barking + "/5"
+                    : "Unavailable"}
                 </li>
-                <li>Good with Strangers: {breedStats.good_with_children}/5</li>
-                <li>Grooming: {breedStats.grooming}/5</li>
-                <li>Playfulness: {breedStats.playfulness}/5</li>
-                <li>Protectiveness: {breedStats.protectiveness}/5</li>
-                <li>Shedding: {breedStats.shedding}/5</li>
-                <li>Trainability: {breedStats.trainability}/5</li>
+                <li>
+                  Coat Length:{" "}
+                  {breedStats.coat_length
+                    ? breedStats.coat_length + "/5"
+                    : "Unavailable"}
+                </li>
+                <li>
+                  Drooling:{" "}
+                  {breedStats.drooling
+                    ? breedStats.drooling + "/5"
+                    : "Unavailable"}
+                </li>
+                <li>
+                  Energy:{" "}
+                  {breedStats.energy ? breedStats.energy + "/5" : "Unavailable"}
+                </li>
+                <li>
+                  Good with Children:{" "}
+                  {breedStats.good_with_children
+                    ? breedStats.good_with_children + "/5"
+                    : "Unavailable"}
+                </li>
+                <li>
+                  Good with Other Dogs:{" "}
+                  {breedStats.good_with_other_dogs
+                    ? breedStats.good_with_other_dogs + "/5"
+                    : "Unavailable"}
+                </li>
+                <li>
+                  Good with Strangers:{" "}
+                  {breedStats.good_with_strangers
+                    ? breedStats.good_with_strangers + "/5"
+                    : "Unavailable"}
+                </li>
+                <li>
+                  Grooming:{" "}
+                  {breedStats.grooming
+                    ? breedStats.grooming + "/5"
+                    : "Unavailable"}
+                </li>
+                <li>
+                  Playfulness:{" "}
+                  {breedStats.playfulness
+                    ? breedStats.playfulness + "/5"
+                    : "Unavailable"}
+                </li>
+                <li>
+                  Protectiveness:{" "}
+                  {breedStats.protectiveness
+                    ? breedStats.protectiveness + "/5"
+                    : "Unavailable"}
+                </li>
+                <li>
+                  Shedding:{" "}
+                  {breedStats.shedding
+                    ? breedStats.shedding + "/5"
+                    : "Unavailable"}
+                </li>
+                <li>
+                  Trainability:{" "}
+                  {breedStats.trainability
+                    ? breedStats.trainability + "/5"
+                    : "Unavailable"}
+                </li>
               </ul>
             </>
           ) : (

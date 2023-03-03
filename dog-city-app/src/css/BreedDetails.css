@@ -64,6 +64,8 @@
 }
 
 .breed-description {
+  backdrop-filter: blur(3px);
+
   margin-top:1em;
   display: flex;
   flex-direction: column;

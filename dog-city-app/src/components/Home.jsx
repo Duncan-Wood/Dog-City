@@ -12,10 +12,16 @@ export default function Home() {
   useEffect(() => {
     const getRandomDogImage = async () => {
       try {
-        const response = await axios.get(RANDOM_DOG_URL);
+        const response = await axios.get(`${RANDOM_DOG_URL}`, {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_THEDOGAPI_KEY}`,
+          },
+        });
         setRandomDogImage(response.data[0]);
       } catch (error) {
-        console.log(error);
+        alert(
+          "An error occurred while fetching a random breed. Please email duncanwoodpro@gmail.com to notify them about this error."
+        );
       }
     };
     getRandomDogImage();
@@ -34,20 +40,24 @@ export default function Home() {
 
   useEffect(() => {
     const getBreeds = async () => {
-      const response = await axios.get(`${BREEDS_URL}`, {
-        Authorization: `Bearer ${process.env.REACT_APP_THEDOGAPI_KEY}`,
-      });
-      setBreeds(response.data);
-      // Get 5 random breeds from the list
-      const randomBreeds = [];
-      while (randomBreeds.length < 5) {
-        const randomIndex = Math.floor(Math.random() * response.data.length);
-        const randomBreed = response.data[randomIndex];
-        if (!randomBreeds.includes(randomBreed)) {
-          randomBreeds.push(randomBreed);
+      try {
+        const response = await axios.get(`${BREEDS_URL}`, {
+          Authorization: `Bearer ${process.env.REACT_APP_THEDOGAPI_KEY}`,
+        });
+        setBreeds(response.data);
+        // Get 5 random breeds from the list
+        const randomBreeds = [];
+        while (randomBreeds.length < 5) {
+          const randomIndex = Math.floor(Math.random() * response.data.length);
+          const randomBreed = response.data[randomIndex];
+          if (!randomBreeds.includes(randomBreed)) {
+            randomBreeds.push(randomBreed);
+          }
         }
+        setRandomBreeds(randomBreeds);
+      } catch (error) {
+        alert("There was an error getting the featured breeds. Please email duncanwoodpro@gmail.com to notify them about this error.");
       }
-      setRandomBreeds(randomBreeds);
     };
     getBreeds();
   }, []);
@@ -79,7 +89,7 @@ export default function Home() {
       ) : (
         <p>dog loading</p>
       )}
-              <h2>Featured Breeds</h2>
+      <h2>Featured Breeds</h2>
 
       <div className="random-grid" id="random-breeds">
         {randomBreeds.map((breed, i) => (
