@@ -46,6 +46,7 @@ export default function BreedDetails() {
     getBreedDetails();
   }, [id]);
 
+  //ChatGPT was a big help for me to figure out this code in particular. Graphs are not easy to make and I spent a lot of time on this!
   const getChartData = () => {
     const labels = [
       "Barking",
