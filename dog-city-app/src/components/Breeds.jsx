@@ -42,10 +42,10 @@ export default function Breeds() {
 
   return (
     <div className="breeds">
+      <Link to="/" className="back-button">
+        Back
+      </Link>
       <div className="breeds-header">
-        <Link to="/" className="back-button">
-          Back
-        </Link>
         <div className="search-container">
           <input
             type="text"
