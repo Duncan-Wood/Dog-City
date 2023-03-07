@@ -46,6 +46,7 @@
   display: flex;
   justify-content: space-around;
   padding-top: 1em;
+  gap: .5em;
 }
 
 .home-buttons a {
@@ -89,13 +90,12 @@
 
 .random-card {
   backdrop-filter: blur(3px);
-  width: 25%;
+  width: 20%;
   margin: 1%;
   text-align: center;
   background-color: #d99f59ab;
   height: fit-content;
   border-radius: 8px;
-  padding: 0.5em;
   transition: transform 0.3s ease-in-out;
 }
 .random-card:hover {

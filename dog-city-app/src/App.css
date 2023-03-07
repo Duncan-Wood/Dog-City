@@ -2,3 +2,11 @@ body {
   font-family: "Roboto", sans-serif;
   color: #412a17;
 }
+
+h4 {
+  margin: 10px;
+  text-align: center;
+  padding: .1em;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
