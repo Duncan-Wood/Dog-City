@@ -1,0 +1,3 @@
+/breeds /breeds
+
+/breeds/* /breeds/:splat
