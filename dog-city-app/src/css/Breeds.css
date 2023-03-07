@@ -33,6 +33,14 @@
   color: #fff;
 }
 
+.search-container {
+  width:100%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5em;
+}
+
 input[type="text"] {
   padding: 10px;
   border: 1px solid #ccc;
