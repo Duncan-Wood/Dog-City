@@ -19,7 +19,7 @@ Dog City is a react web app for dog lovers who wish to learn more about dog bree
     - useEffect/useState
     - useParams
     - Chart from Chart.js
-- MidJourney AI for design concept
+- Midjourney AI for design concept
 - Photopea for refining design
 - ChatGPT AI for debugging and rubberducking
 - Netlify for deployment
